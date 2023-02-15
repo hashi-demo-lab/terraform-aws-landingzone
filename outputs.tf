@@ -19,6 +19,6 @@ output "security_group_ssh_id" {
 }
 
 output "key" {
-  description = private_key_pem
+  description = "private_key_pem"
   value = tls_private_key.main.private_key_pem
 }
