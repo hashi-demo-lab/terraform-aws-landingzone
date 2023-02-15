@@ -33,16 +33,6 @@ variable "private_subnets" {
   type        = list(any)
 }
 
-variable "cloud_image_id" {
-  description = "AMI cloud image id "
-  type        = string
-}
-
-variable "admin_username" {
-  description = "ubuntu username"
-  type        = string
-}
-
 variable "enable_vpc" {
   type        = bool
   description = <<EOT
