@@ -1,4 +1,4 @@
-module "security-group_http-80" {
+module "security_group_http" {
   count   = (var.enable_http_access ? 1 : 0)
   source  = "terraform-aws-modules/security-group/aws//modules/http-80"
   version = "4.17.1"
@@ -11,7 +11,7 @@ module "security-group_http-80" {
   egress_cidr_blocks  = ["0.0.0.0/0"]
 }
 
-module "security-group_ssh" {
+module "security_group_ssh" {
   count   = (var.enable_ssh_access ? 1 : 0)
   source  = "terraform-aws-modules/security-group/aws//modules/ssh"
   version = "4.17.1"
