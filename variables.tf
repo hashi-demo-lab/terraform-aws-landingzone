@@ -62,3 +62,13 @@ variable "enable_ssh_access" {
   EOT
   default     = true
 }
+
+variable "enable_tgw" {
+  type        = bool
+  description = <<EOT
+    (Optional) Enable feature X.
+
+    Default: true
+  EOT
+  default     = true
+}
