@@ -1,4 +1,4 @@
-module "tgw" {
+/*module "tgw" {
   count   = (var.enable_tgw ? 1 : 0)
   source  = "terraform-aws-modules/transit-gateway/aws"
   version = "2.8.0"
@@ -28,4 +28,4 @@ resource "aws_route" "hcp_hvn_route" {
   route_table_id         = module.vpc.public_route_table_ids[0]
   destination_cidr_block = var.hcp_hvn_cidr
   transit_gateway_id     = module.tgw.ec2_transit_gateway_id
-}
+}*/

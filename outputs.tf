@@ -17,8 +17,3 @@ output "security_group_ssh_id" {
   description = "Security Group SSH ID"
   value       = module.security_group_ssh[0].security_group_id
 }
-
-output "key" {
-  description = "private_key_pem"
-  value = tls_private_key.main.private_key_pem
-}
