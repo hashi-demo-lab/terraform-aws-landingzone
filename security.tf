@@ -1,3 +1,8 @@
+resource "aws_key_pair" "main" {
+  key_name   = var.aws_key_pair_key_name
+  public_key = var.ssh_pubkey
+}
+
 module "security_group_http" {
   count   = (var.enable_http_access ? 1 : 0)
   source  = "terraform-aws-modules/security-group/aws//modules/http-80"
@@ -22,17 +27,4 @@ module "security_group_ssh" {
 
   ingress_cidr_blocks = ["0.0.0.0/0"]
   egress_cidr_blocks  = ["0.0.0.0/0"]
-}
-
-resource "tls_private_key" "main" {
-  algorithm = "RSA"
-}
-
-locals {
-  private_key_filename = "${var.deployment_id}-ssh-key.pem"
-}
-
-resource "aws_key_pair" "main" {
-  key_name   = local.private_key_filename
-  public_key = tls_private_key.main.public_key_openssh
 }

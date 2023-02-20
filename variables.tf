@@ -33,6 +33,16 @@ variable "private_subnets" {
   type        = list(any)
 }
 
+variable "aws_key_pair_key_name" {
+  description = "AWS key pair name"
+  type        = string
+}
+
+variable "ssh_pubkey" {
+  description = "ssh public key"
+  type        = string
+}
+
 variable "enable_vpc" {
   type        = bool
   description = <<EOT
