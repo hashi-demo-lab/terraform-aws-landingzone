@@ -20,5 +20,5 @@ output "security_group_ssh_id" {
 
 output "ssm_instance_profile_name" {
   description = "Provides an IAM instance profile."
-  value       = aws_iam_instance_profile.ssm_instance_profile.name
+  value       = aws_iam_instance_profile.ssm_instance_profile[0].name
 }
