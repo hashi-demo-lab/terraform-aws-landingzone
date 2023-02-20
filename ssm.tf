@@ -1,7 +1,7 @@
 resource "aws_iam_instance_profile" "ssm_instance_profile" {
   count   = (var.enable_ssm ? 1 : 0)
   name = "ssm_instance_profile"
-  role = aws_iam_role.ssm_role.id
+  role = aws_iam_role.ssm_role[0].id
 }
 
 resource "aws_iam_role" "ssm_role" {
@@ -24,5 +24,5 @@ resource "aws_iam_role" "ssm_role" {
 resource "aws_iam_role_policy_attachment" "ssm_policy_attachment" {
   count   = (var.enable_ssm ? 1 : 0)
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-  role       = aws_iam_role.ssm_role.name
+  role       = aws_iam_role.ssm_role[0].name
 }
