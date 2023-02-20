@@ -18,7 +18,7 @@ output "security_group_ssh_id" {
   value       = module.security_group_ssh[0].security_group_id
 }
 
-output "ssm_instance_profile" {
+output "ssm_instance_profile_name" {
   description = "Provides an IAM instance profile."
-  value       = aws_iam_instance_profile.ssm_instance_profile
+  value       = aws_iam_instance_profile.ssm_instance_profile.name
 }
