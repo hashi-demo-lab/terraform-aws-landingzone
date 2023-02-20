@@ -44,41 +44,51 @@ variable "ssh_pubkey" {
 }
 
 variable "enable_vpc" {
-  type        = bool
   description = <<EOT
-    (Optional) Enable feature X.
+    (Optional) Enable AWS VPC creation.
 
     Default: true
   EOT
+  type        = bool
   default     = true
 }
 
 variable "enable_http_access" {
-  type        = bool
   description = <<EOT
-    (Optional) Enable feature X.
+    (Optional) Enable http access.
 
     Default: true
   EOT
+  type        = bool
   default     = true
 }
 
 variable "enable_ssh_access" {
-  type        = bool
   description = <<EOT
-    (Optional) Enable feature X.
+    (Optional) Enable ssh access.
 
     Default: true
   EOT
+  type        = bool
   default     = true
 }
 
 variable "enable_tgw" {
-  type        = bool
   description = <<EOT
-    (Optional) Enable feature X.
+    (Optional) Enable AWS Transit Gateway.
 
     Default: true
   EOT
+  type        = bool
+  default     = true
+}
+
+variable "enable_ssm" {
+  description = <<EOT
+    (Optional) Enable AWS Systems Management.
+
+    Default: true
+  EOT
+  type        = bool
   default     = true
 }
