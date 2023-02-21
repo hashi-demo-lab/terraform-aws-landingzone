@@ -1,5 +1,5 @@
 resource "aws_key_pair" "main" {
-  key_name   = var.aws_key_pair_key_name
+  key_name   = "${var.deployment_id}-${var.aws_key_pair_key_name}"
   public_key = var.ssh_pubkey
 }
 
