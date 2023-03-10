@@ -1,4 +1,4 @@
-data "aws_availability_zones" "available" {}
+//data "aws_availability_zones" "available" {}
 
 module "vpc" {
   count   = (var.enable_vpc ? 1 : 0)
@@ -7,7 +7,7 @@ module "vpc" {
 
   name                 = var.deployment_id
   cidr                 = var.vpc_cidr
-  azs                  = data.aws_availability_zones.available.names
+  azs                  = var.availability_zones
   public_subnets       = var.public_subnets
   private_subnets      = var.private_subnets
   enable_nat_gateway   = true

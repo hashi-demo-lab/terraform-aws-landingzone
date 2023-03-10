@@ -3,6 +3,11 @@ variable "region" {
   type        = string
 }
 
+variable "availability_zones" {
+  description = "AWS region"
+  type        = list
+  default = ["ap-southeast-2a", "ap-southeast-2b", "ap-southeast-2c"]
+}
 variable "owner" {
   description = "Resource owner identified using an email address"
   type        = string
