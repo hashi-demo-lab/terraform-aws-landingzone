@@ -1,6 +1,11 @@
 # Terraform Private Module for AWS Base Infrastructure Services
 
+
+![AWS Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1200px-Amazon_Web_Services_Logo.svg.png)
+
+
 This Terraform private module provides a set of reusable Terraform modules that can be used to create foundational infrastructure services on AWS. The modules are designed to be modular, easy to use, and extensible. They allow you to easily create VPCs, security groups, transit gateways, and KMS keys, with the ability to enable or disable the creation of each resource using a `count` variable.
+
 
 ## Table of Contents
 
