@@ -9,7 +9,6 @@ This Terraform private module provides a set of reusable Terraform modules that 
 - [Variables](#variables)
 - [Outputs](#outputs)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Prerequisites
 
@@ -53,6 +52,7 @@ This module exposes several input variables that can be used to configure the AW
 You can customize the behavior of this module by setting these variables to true or false as needed. You can also set other variables to configure the resources created by this module.
 
 ## Outputs
+
 This module exposes several output variables that can be used to reference the resources created by this module. Some of the important output variables are:
 
 vpc_id: The ID of the VPC created by this module
@@ -62,4 +62,5 @@ kms_key_id: The ID of the KMS key created by this module
 You can use these output variables to reference the resources created by this module in other parts of your Terraform code.
 
 ## Contributing
+
 If you find a bug or have a feature request, please open an issue or submit a pull request. We welcome contributions from the community!
