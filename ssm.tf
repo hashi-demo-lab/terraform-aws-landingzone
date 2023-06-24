@@ -6,7 +6,7 @@ resource "aws_iam_instance_profile" "ssm_instance_profile" {
 
 resource "aws_iam_role" "ssm_role" {
   count = (var.enable_ssm ? 1 : 0)
-  name  = "ssm_role"
+  name  = "ssm_role_${var.workspace_type}"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
