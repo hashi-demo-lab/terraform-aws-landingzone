@@ -48,6 +48,11 @@ variable "ssh_pubkey" {
   type        = string
 }
 
+variable "workspace_type" {
+  description = "Terraform Cloud workspace type"
+  type        = string
+}
+
 variable "enable_vpc" {
   description = <<EOT
     (Optional) Enable AWS VPC creation.
