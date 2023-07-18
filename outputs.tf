@@ -22,3 +22,8 @@ output "ssm_instance_profile_name" {
   description = "Provides an IAM instance profile."
   value       = aws_iam_instance_profile.ssm_instance_profile[0].name
 }
+
+output "aws_key_pair_name" {
+  description = "Provides an IAM instance profile."
+  value       = aws_key_pair.main.key_name
+}
