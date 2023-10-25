@@ -1,4 +1,4 @@
-# Terraform Private Module for AWS Base Infrastructure Services
+# AWS Landing Zone Private Module
 
 
 <p align="center">
