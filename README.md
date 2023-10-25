@@ -2,7 +2,7 @@
 
 
 <p align="center">
-  <img src="./approved-by-aaron.png" alt="Image 1 Description" width="45%" />
+  <img src="https://drive.google.com/file/d/1rvOi52bE9GldOMOXa1pTSfVDit4vNU-_/view?usp=sharing" alt="Image 1 Description" width="45%" />
   &nbsp; &nbsp; &nbsp;  <!-- Spacing between images -->
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1200px-Amazon_Web_Services_Logo.svg.png" alt="Image 2 Description" width="45%" />
 </p>
