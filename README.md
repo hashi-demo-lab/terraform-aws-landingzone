@@ -1,7 +1,8 @@
 # Approved AWS Landing Zone Module
 
 
-![Approved By Aaron](./approved-by-aaron.png)
+<img src="./approved-by-aaron.png" alt="Approved by Aaron" width="50%"/>
+
 
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1200px-Amazon_Web_Services_Logo.svg.png" alt="AWS Logo" width="200"/>
