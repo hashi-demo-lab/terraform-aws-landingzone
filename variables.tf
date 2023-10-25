@@ -1,95 +1,104 @@
 variable "region" {
   description = "AWS region"
   type        = string
-  default     = "ap-southeast-2"
 }
 
 variable "availability_zones" {
-  description = "List of availability zones"
-  type        = list(string)
+  description = "AWS region"
+  type        = list(any)
   default     = ["ap-southeast-2a", "ap-southeast-2b", "ap-southeast-2c"]
 }
-
 variable "owner" {
   description = "Resource owner identified using an email address"
   type        = string
-  default     = "owner@example.com"
 }
 
 variable "ttl" {
-  description = "Resource TTL (time-to-live) in days"
+  description = "Resource TTL (time-to-live)"
   type        = number
-  default     = 30
 }
 
 variable "deployment_id" {
   description = "Deployment id"
   type        = string
-  default     = "my-deployment"
 }
 
 variable "vpc_cidr" {
   description = "VPC CIDR"
   type        = string
-  default     = "10.200.0.0/16"
 }
 
 variable "public_subnets" {
-  description = "Public subnets CIDR blocks"
-  type        = list(string)
-  default     = ["10.200.10.0/24"]
+  description = "Public subnets"
+  type        = list(any)
 }
 
 variable "private_subnets" {
-  description = "Private subnets CIDR blocks"
-  type        = list(string)
-  default     = ["10.200.20.0/24"]
+  description = "Private subnets"
+  type        = list(any)
 }
 
 variable "aws_key_pair_key_name" {
   description = "AWS key pair name"
   type        = string
-  default     = "my-keypair"
 }
 
 variable "ssh_pubkey" {
-  description = "SSH public key"
+  description = "ssh public key"
   type        = string
-  default     = "ssh-rsa AAAA..."
 }
 
 variable "workspace_type" {
   description = "Terraform Cloud workspace type"
   type        = string
-  default     = "default"
 }
 
 variable "enable_vpc" {
-  description = "Enable AWS VPC creation"
+  description = <<EOT
+    (Optional) Enable AWS VPC creation.
+
+    Default: true
+  EOT
   type        = bool
   default     = true
 }
 
 variable "enable_http_access" {
-  description = "Enable HTTP access"
+  description = <<EOT
+    (Optional) Enable http access.
+
+    Default: true
+  EOT
   type        = bool
   default     = true
 }
 
 variable "enable_ssh_access" {
-  description = "Enable SSH access"
+  description = <<EOT
+    (Optional) Enable ssh access.
+
+    Default: true
+  EOT
   type        = bool
   default     = true
 }
 
 variable "enable_tgw" {
-  description = "Enable AWS Transit Gateway"
+  description = <<EOT
+    (Optional) Enable AWS Transit Gateway.
+
+    Default: true
+  EOT
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "enable_ssm" {
-  description = "Enable AWS Systems Management"
+  description = <<EOT
+    (Optional) Enable AWS Systems Management.
+
+    Default: true
+  EOT
   type        = bool
   default     = true
 }
