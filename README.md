@@ -1,6 +1,11 @@
 # Approved AWS Landing Zone Module
 
 
+
+![Alt text for the image](https://drive.google.com/uc?export=view&id=1rvOi52bE9GldOMOXa1pTSfVDit4vNU-_)
+
+
+
 <p align="center">
   <img src="https://drive.google.com/file/d/1rvOi52bE9GldOMOXa1pTSfVDit4vNU-_/view" alt="Image 1 Description" width="45%" />
   &nbsp; &nbsp; &nbsp;  <!-- Spacing between images -->
