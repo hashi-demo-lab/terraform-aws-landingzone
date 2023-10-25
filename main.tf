@@ -1,4 +1,5 @@
 module "vpc" {
+  count   = var.enable_vpc ? 1 : 0
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.1.2"
 
@@ -13,34 +14,29 @@ module "vpc" {
   create_igw           = true
 
   tags = {
-    "Name"  = var.deployment_id
-    "Owner" = var.owner
-    "TTL"   = tostring(var.ttl)
+    "applications/${var.deployment_id}" = "sea"
   }
 
   public_subnet_tags = {
-    "Name"  = "Public-${var.deployment_id}"
-    "Owner" = var.owner
-    "TTL"   = tostring(var.ttl)
+    "applications/${var.deployment_id}" = "sea"
   }
 }
 
 resource "aws_iam_instance_profile" "ssm_instance_profile" {
   count = var.enable_ssm ? 1 : 0
   name  = "ssm_instance_profile_${var.workspace_type}"
-  role  = aws_iam_role.ssm_role[0].name
+  role  = aws_iam_role.ssm_role[0].id
 }
 
 resource "aws_iam_role" "ssm_role" {
   count = var.enable_ssm ? 1 : 0
   name  = "ssm_role_${var.workspace_type}"
-
   assume_role_policy = jsonencode({
-    Version = "2012-10-17",
+    Version = "2012-10-17"
     Statement = [
       {
-        Action = "sts:AssumeRole",
-        Effect = "Allow",
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
         Principal = {
           Service = "ec2.amazonaws.com"
         }
@@ -61,24 +57,26 @@ resource "aws_key_pair" "main" {
 }
 
 module "security_group_http" {
+  count   = var.enable_http_access ? 1 : 0
   source  = "terraform-aws-modules/security-group/aws//modules/http-80"
   version = "5.1.0"
 
   name        = "${var.deployment_id}-http"
-  description = "Security group with HTTP ports open for everybody (IPv4 CIDR)"
-  vpc_id      = module.vpc.vpc_id
+  description = "Security group with HTTP ports open for everybody (IPv4 CIDR), egress ports are all world open"
+  vpc_id      = module.vpc[0].vpc_id
 
   ingress_cidr_blocks = ["0.0.0.0/0"]
   egress_cidr_blocks  = ["0.0.0.0/0"]
 }
 
 module "security_group_ssh" {
+  count   = var.enable_ssh_access ? 1 : 0
   source  = "terraform-aws-modules/security-group/aws//modules/ssh"
   version = "5.1.0"
 
   name        = "${var.deployment_id}-ssh"
-  description = "Security group with SSH ports open for everybody (IPv4 CIDR)"
-  vpc_id      = module.vpc.vpc_id
+  description = "Security group with ssh ports open for everybody (IPv4 CIDR), egress ports are all world open"
+  vpc_id      = module.vpc[0].vpc_id
 
   ingress_cidr_blocks = ["0.0.0.0/0"]
   egress_cidr_blocks  = ["0.0.0.0/0"]
