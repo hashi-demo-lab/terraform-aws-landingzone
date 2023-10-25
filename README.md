@@ -1,8 +1,6 @@
 # Approved AWS Landing Zone Module
 
-<div align="center">
-  <img src="./approved-by-aaron.png" alt="Approved by Aaron" width="50%"/>
-</div>
+
 
 
 ![Approved By Aaron](./approved-by-aaron.png)
