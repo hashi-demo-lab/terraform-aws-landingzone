@@ -1,4 +1,4 @@
-# AWS Landing Zone Private Module
+# Approved AWS Landing Zone Module
 
 
 <p align="center">
