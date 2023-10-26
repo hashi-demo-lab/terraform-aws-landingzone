@@ -25,7 +25,6 @@ variable "ttl" {
 variable "deployment_name" {
   description = "Deployment name"
   type        = string
-  default     = "my-deployment"
 }
 
 variable "vpc_cidr" {
@@ -49,6 +48,7 @@ variable "private_subnets" {
 variable "aws_key_pair_key_name" {
   description = "AWS key pair name"
   type        = string
+  default     = "key"
 }
 
 variable "ssh_pubkey" {
