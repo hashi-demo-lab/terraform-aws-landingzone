@@ -33,13 +33,13 @@ module "vpc" {
 
 resource "aws_iam_instance_profile" "ssm_instance_profile" {
   count = var.enable_ssm ? 1 : 0
-  name  = "ssm_instance_profile_${var.workspace_type}"
+  name  = "ssm_instance_profile_${local.deployment_id}"
   role  = aws_iam_role.ssm_role[0].id
 }
 
 resource "aws_iam_role" "ssm_role" {
   count = var.enable_ssm ? 1 : 0
-  name  = "ssm_role_${var.workspace_type}"
+  name  = "ssm_role_${local.deployment_id}"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
