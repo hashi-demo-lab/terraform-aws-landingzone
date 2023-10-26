@@ -27,3 +27,8 @@ output "aws_key_pair_name" {
   description = "Provides an IAM instance profile."
   value       = aws_key_pair.main.key_name
 }
+
+output "deployment_id" {
+  description = "Deployment ID genertaed for this project"
+  value = local.deployment_id
+}
