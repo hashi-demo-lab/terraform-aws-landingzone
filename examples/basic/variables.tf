@@ -8,7 +8,6 @@ variable "deployment_id" {
 variable "region" {
   description = "AWS region"
   type        = string
-  default     = "ap-southeast-2"
 }
 
 variable "owner" {
@@ -33,19 +32,16 @@ variable "deployment_name" {
 variable "aws_vpc_cidr" {
   description = "AWS VPC CIDR"
   type        = string
-  default     = "10.200.0.0/16"
 }
 
 variable "aws_public_subnets" {
   description = "AWS public subnets"
   type        = list(any)
-  default     = ["10.200.10.0/24"]
 }
 
 variable "aws_private_subnets" {
   description = "AWS private subnets"
   type        = list(any)
-  default     = ["10.200.20.0/24"]
 }
 
 variable "address_space" {
