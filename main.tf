@@ -1,9 +1,18 @@
+locals {
+  deployment_id = lower("${var.deployment_name}-${random_string.suffix.result}")
+}
+
+resource "random_string" "suffix" {
+  length  = 8
+  special = false
+}
+
 module "vpc" {
   count   = var.enable_vpc ? 1 : 0
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.1.2"
 
-  name                 = var.deployment_id
+  name                 = local.deployment_id
   cidr                 = var.vpc_cidr
   azs                  = var.availability_zones
   public_subnets       = var.public_subnets
@@ -14,11 +23,11 @@ module "vpc" {
   create_igw           = true
 
   tags = {
-    "applications/${var.deployment_id}" = "sea"
+    "applications/${local.deployment_id}" = "sea"
   }
 
   public_subnet_tags = {
-    "applications/${var.deployment_id}" = "sea"
+    "applications/${local.deployment_id}" = "sea"
   }
 }
 
@@ -52,7 +61,7 @@ resource "aws_iam_role_policy_attachment" "ssm_policy_attachment" {
 }
 
 resource "aws_key_pair" "main" {
-  key_name   = "${var.deployment_id}-${var.aws_key_pair_key_name}"
+  key_name   = "${local.deployment_id}-${var.aws_key_pair_key_name}"
   public_key = var.ssh_pubkey
 }
 
@@ -61,7 +70,7 @@ module "security_group_http" {
   source  = "terraform-aws-modules/security-group/aws//modules/http-80"
   version = "5.1.0"
 
-  name        = "${var.deployment_id}-http"
+  name        = "${local.deployment_id}-http"
   description = "Security group with HTTP ports open for everybody (IPv4 CIDR), egress ports are all world open"
   vpc_id      = module.vpc[0].vpc_id
 
@@ -74,7 +83,7 @@ module "security_group_ssh" {
   source  = "terraform-aws-modules/security-group/aws//modules/ssh"
   version = "5.1.0"
 
-  name        = "${var.deployment_id}-ssh"
+  name        = "${local.deployment_id}-ssh"
   description = "Security group with ssh ports open for everybody (IPv4 CIDR), egress ports are all world open"
   vpc_id      = module.vpc[0].vpc_id
 

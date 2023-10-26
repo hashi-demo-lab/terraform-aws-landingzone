@@ -10,7 +10,7 @@ module "landingzone" {
   region                = var.region
   owner                 = var.owner
   ttl                   = var.ttl
-  deployment_id         = var.deployment_id
+  deployment_name       = var.deployment_name
   vpc_cidr              = var.aws_vpc_cidr
   public_subnets        = var.aws_public_subnets
   private_subnets       = var.aws_private_subnets
