@@ -30,3 +30,7 @@ override.tf.json
 
 # lock.hcl files
 *.lock.hcl
+
+# auto.tfvars
+*auto.tfvars
+
