@@ -76,8 +76,7 @@ module "security_group_http" {
 
   ingress_cidr_blocks = ["0.0.0.0/0"]
   egress_cidr_blocks  = ["0.0.0.0/0"]
-  ingress_rules       = ["http-80"]  # Specify the HTTP rule
-}
+  ingress_rules       = ["http-80"]
 
 module "security_group_ssh" {
   count   = var.enable_ssh_access ? 1 : 0
@@ -90,6 +89,5 @@ module "security_group_ssh" {
 
   ingress_cidr_blocks = ["0.0.0.0/0"]
   egress_cidr_blocks  = ["0.0.0.0/0"]
-  ingress_rules       = ["ssh"]  # Specify the SSH rule
-}
+  ingress_rules       = ["ssh"] 
 
