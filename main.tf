@@ -67,7 +67,7 @@ resource "aws_key_pair" "main" {
 
 module "security_group_http" {
   count   = var.enable_http_access ? 1 : 0
-  source  = "terraform-aws-modules/security-group/aws//modules/http-80"
+  source  = "terraform-aws-modules/security-group/aws/modules/http-80"
   version = "5.1.0"
 
   name        = "${local.deployment_id}-http"
@@ -80,7 +80,7 @@ module "security_group_http" {
 
 module "security_group_ssh" {
   count   = var.enable_ssh_access ? 1 : 0
-  source  = "terraform-aws-modules/security-group/aws//modules/ssh"
+  source  = "terraform-aws-modules/security-group/aws/modules/ssh"
   version = "5.1.0"
 
   name        = "${local.deployment_id}-ssh"
