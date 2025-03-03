@@ -10,7 +10,7 @@ resource "random_string" "suffix" {
 module "vpc" {
   count   = var.enable_vpc ? 1 : 0
   source  = "terraform-aws-modules/vpc/aws"
-  version = "5.1.2"
+  version = "~> 5.0"
 
   name                 = local.deployment_id
   cidr                 = var.vpc_cidr
@@ -68,7 +68,7 @@ resource "aws_key_pair" "main" {
 module "security_group_http" {
   count   = var.enable_http_access ? 1 : 0
   source  = "terraform-aws-modules/security-group/aws//modules/http-80"
-  version = "5.1.0"
+  version = "~> 5.0"
 
   name        = "${local.deployment_id}-http"
   description = "Security group with HTTP ports open for everybody (IPv4 CIDR), egress ports are all world open"
@@ -81,7 +81,7 @@ module "security_group_http" {
 module "security_group_ssh" {
   count   = var.enable_ssh_access ? 1 : 0
   source  = "terraform-aws-modules/security-group/aws//modules/ssh"
-  version = "5.1.0"
+  version = "~> 5.0"
 
   name        = "${local.deployment_id}-ssh"
   description = "Security group with ssh ports open for everybody (IPv4 CIDR), egress ports are all world open"
